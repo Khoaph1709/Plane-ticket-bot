@@ -24,7 +24,8 @@ class FlightMonitorTests(unittest.TestCase):
         route = users[0].routes[0]
         self.assertEqual(route.origin, "DAD")
         self.assertEqual(route.destination, "NRT")
-        self.assertEqual(route.depart_end, "2026-11-14")
+        self.assertEqual(route.depart_date, "2026-11-10")
+        self.assertEqual(route.depart_end, "2026-11-18")
 
     def test_compare_prices_uses_lowest_duplicate_fare(self):
         previous = [{"airline": "Vietjet Air", "code": "VJ123", "time": "08:00", "price": 4000000}]

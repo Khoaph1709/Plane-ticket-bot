@@ -1,59 +1,76 @@
 {
   "defaults": {
     "top_n": 5,
-    "skip_count": 0
+    "skip_count": 0,
+    "wait_seconds": 40
   },
   "users": [
     {
       "id": "owner",
       "name": "Người dùng chính",
-      "chat_id_env": "TELEGRAM_CHAT_ID_OWNER",
+      "chat_id_env": "TELEGRAM_CHAT_ID_KHOAFUNG",
       "telegram_token_env": "TELEGRAM_BOT_TOKEN",
       "enabled": true,
       "routes": [
         {
-          "id": "danang-narita-20261114",
-          "label": "Đà Nẵng → Narita",
+          "id": "owner-danang-narita-20261114",
+          "label": "Đà Nẵng → Narita (khoảng 10–18/11)",
           "origin": "DAD",
           "destination": "NRT",
-          "depart_date": "2026-11-14",
-          "depart_end": "2026-11-14",
+          "depart_date": "2026-11-10",
+          "depart_end": "2026-11-18",
           "return_date": null,
           "max_price": 3500000,
           "min_drop": 100000,
+          "nonstop_only": false,
           "enabled": true
         },
         {
-          "id": "kansai-danang-20261122",
-          "label": "Osaka Kansai → Đà Nẵng",
+          "id": "owner-kansai-danang-20261122",
+          "label": "Osaka Kansai → Đà Nẵng (khoảng 18–26/11)",
           "origin": "KIX",
           "destination": "DAD",
-          "depart_date": "2026-11-22",
-          "depart_end": "2026-11-22",
+          "depart_date": "2026-11-18",
+          "depart_end": "2026-11-26",
           "return_date": null,
           "max_price": 3500000,
           "min_drop": 100000,
+          "nonstop_only": false,
           "enabled": true
         }
       ]
     },
     {
-      "id": "friend-1",
-      "name": "Bạn A",
-      "chat_id_env": "TELEGRAM_CHAT_ID_FRIEND_1",
+      "id": "family-1",
+      "name": "Mợ Lam",
+      "chat_id_env": "TELEGRAM_CHAT_ID_LAM",
       "telegram_token_env": "TELEGRAM_BOT_TOKEN",
-      "enabled": false,
+      "enabled": true,
       "routes": [
         {
-          "id": "sample-route",
-          "label": "Ví dụ tuyến riêng",
-          "origin": "HAN",
+          "id": "family-1-danang-narita-20261114",
+          "label": "Đà Nẵng → Narita (khoảng 10–18/11)",
+          "origin": "DAD",
           "destination": "NRT",
-          "depart_date": "2026-12-01",
-          "depart_end": "2026-12-05",
+          "depart_date": "2026-11-10",
+          "depart_end": "2026-11-18",
           "return_date": null,
-          "max_price": null,
-          "min_drop": 0,
+          "max_price": 3500000,
+          "min_drop": 100000,
+          "nonstop_only": false,
+          "enabled": true
+        },
+        {
+          "id": "family-1-kansai-danang-20261122",
+          "label": "Osaka Kansai → Đà Nẵng (khoảng 18–26/11)",
+          "origin": "KIX",
+          "destination": "DAD",
+          "depart_date": "2026-11-18",
+          "depart_end": "2026-11-26",
+          "return_date": null,
+          "max_price": 3500000,
+          "min_drop": 100000,
+          "nonstop_only": false,
           "enabled": true
         }
       ]

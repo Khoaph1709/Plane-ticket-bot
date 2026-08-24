@@ -133,7 +133,9 @@ Tạo các Secrets trong **Settings → Secrets and variables → Actions**:
 | --- | --- |
 | `TELEGRAM_BOT_TOKEN` | Token mới của bot Telegram |
 | `TELEGRAM_CHAT_ID_KHOAFUNG` | Chat ID của người dùng chính |
-| `TELEGRAM_CHAT_ID_FRIEND_1` | Chat ID của người dùng thứ hai nếu bật |
+| `TELEGRAM_CHAT_ID_LAM` | Chat ID của Mợ Lam |
+| `TELEGRAM_CHAT_ID_OWNER` | Tên cũ, chỉ giữ để tương thích cấu hình cũ |
+| `TELEGRAM_CHAT_ID_FRIEND_1` | Tên cũ, chỉ giữ để tương thích cấu hình cũ |
 | `USERS_JSON_B64` | Tùy chọn; nội dung `users.json` đã mã hóa Base64 |
 
 Nếu `users.json` chỉ chứa route và tên biến môi trường, bạn có thể commit file này. Nếu muốn giữ cấu hình người dùng ngoài repository, chạy:

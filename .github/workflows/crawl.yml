@@ -51,6 +51,9 @@ jobs:
       - name: Crawl, compare and notify
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID_KHOAFUNG: ${{ secrets.TELEGRAM_CHAT_ID_KHOAFUNG }}
+          TELEGRAM_CHAT_ID_LAM: ${{ secrets.TELEGRAM_CHAT_ID_LAM }}
+          # Keep legacy names available for older users.json files.
           TELEGRAM_CHAT_ID_OWNER: ${{ secrets.TELEGRAM_CHAT_ID_OWNER }}
           TELEGRAM_CHAT_ID_FRIEND_1: ${{ secrets.TELEGRAM_CHAT_ID_FRIEND_1 }}
           PYTHONUNBUFFERED: "1"
