@@ -29,6 +29,12 @@ class RouteConfig:
     enabled: bool
     max_price: int | None
     min_drop: int
+    nonstop_only: bool = False
+    service_class: str = "y"
+    quantity: int = 1
+    wait_seconds: int = 40
+    departure_city: str | None = None
+    arrival_city: str | None = None
 
     @property
     def key(self) -> str:
@@ -117,6 +123,12 @@ def load_config(path: str | Path) -> tuple[dict[str, Any], tuple[UserConfig, ...
                 enabled=bool(raw_route.get("enabled", True)),
                 max_price=max_price,
                 min_drop=int(raw_route.get("min_drop", 0)),
+                nonstop_only=bool(raw_route.get("nonstop_only", False)),
+                service_class=str(raw_route.get("service_class", "y")).lower(),
+                quantity=int(raw_route.get("quantity", 1)),
+                wait_seconds=int(raw_route.get("wait_seconds", defaults.get("wait_seconds", 40))),
+                departure_city=(str(raw_route["departure_city"]).lower() if raw_route.get("departure_city") else None),
+                arrival_city=(str(raw_route["arrival_city"]).lower() if raw_route.get("arrival_city") else None),
             ))
         users.append(UserConfig(
             id=user_id,
@@ -129,7 +141,7 @@ def load_config(path: str | Path) -> tuple[dict[str, Any], tuple[UserConfig, ...
     return payload, tuple(users)
 
 
-def route_to_atadi_config(route: RouteConfig) -> dict[str, Any]:
+def route_to_trip_config(route: RouteConfig) -> dict[str, Any]:
     """Return a browser-layer config without exposing Telegram credentials."""
     return {
         "id": route.id,
@@ -143,7 +155,17 @@ def route_to_atadi_config(route: RouteConfig) -> dict[str, Any]:
         "top_n": route.top_n,
         "skip_count": route.skip_count,
         "enabled": route.enabled,
+        "nonstop_only": route.nonstop_only,
+        "service_class": route.service_class,
+        "quantity": route.quantity,
+        "wait_seconds": route.wait_seconds,
+        "departure_city": route.departure_city,
+        "arrival_city": route.arrival_city,
     }
+
+
+# Backward-compatible alias for callers from the Atadi version.
+route_to_atadi_config = route_to_trip_config
 
 
 def flight_key(flight: dict[str, Any]) -> str:

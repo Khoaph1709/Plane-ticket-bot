@@ -8,13 +8,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from atadi_crawler import crawl_route, init_driver
+from trip_crawler import crawl_route, init_driver
 from flight_monitor import (
     atomic_write_json,
     build_user_message,
     load_config,
     read_json,
-    route_to_atadi_config,
+    route_to_trip_config,
 )
 from telegram_notifier import send_from_environment
 
@@ -73,7 +73,7 @@ def main() -> int:
                 if not route.enabled:
                     continue
                 LOG.info("Crawling %s / %s", user.id, route.id)
-                current_data = crawl_route(driver, route_to_atadi_config(route))
+                current_data = crawl_route(driver, route_to_trip_config(route))
                 flight_count = sum(len(flights) for flights in current_data.values())
                 LOG.info("Route %s/%s returned %d flight option(s)", user.id, route.id, flight_count)
                 new_state["users"][user.id]["routes"][route.id] = {

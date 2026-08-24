@@ -5,7 +5,7 @@ from datetime import datetime
 from unittest.mock import patch
 from pathlib import Path
 
-from atadi_crawler import parse_ticket_text, scrape_single_day
+from trip_crawler import generate_trip_url, parse_trip_card, scrape_single_day
 from flight_monitor import (
     atomic_write_json,
     build_user_message,
@@ -43,21 +43,43 @@ class FlightMonitorTests(unittest.TestCase):
         _, should_alert = build_user_message(users[0], route, flights, flights, datetime(2026, 8, 24, 8, 0))
         self.assertTrue(should_alert)
 
-    def test_parser_reads_atadi_ticket_text(self):
-        parsed = parse_ticket_text(
-            "Vietnam Airlines VN318 00:30 DAD 05h05m Bay thẳng 07:35 NRT 15.387.000₫"
+    def test_one_way_trip_url_has_no_return_date(self):
+        url = generate_trip_url(
+            {"origin": "DAD", "destination": "NRT"},
+            "2026-11-14",
         )
-        self.assertEqual(parsed["code"], "VN318")
-        self.assertEqual(parsed["time"], "00:30")
-        self.assertEqual(parsed["price"], 15387000)
+        self.assertIn("triptype=ow", url)
+        self.assertIn("ddate=2026-11-14", url)
+        self.assertNotIn("rdate", url)
+        self.assertIn("curr=VND", url)
 
-    def test_old_skip_count_does_not_drop_all_cards(self):
+    def test_parser_reads_tripcom_vnd_card(self):
+        class Card:
+            text = (
+                "Đã có HK Express 21:05 DAD 8g 10p "
+                "2g tại Hồng Kông 07:15 NRT +1 6.107.000₫ 6.312.000₫ Chọn"
+            )
+
+            def find_elements(self, _by, _selector):
+                return []
+
+        parsed = parse_trip_card(Card(), {"origin": "DAD", "destination": "NRT"}, "2026-11-14")
+        self.assertIsNotNone(parsed)
+        self.assertEqual(parsed["price"], 6107000)
+        self.assertEqual(parsed["currency"], "VND")
+        self.assertEqual(parsed["time"], "21:05")
+
+    def test_trip_crawler_reads_cards_when_wait_is_satisfied(self):
         class Ticket:
-            def __init__(self, text):
+            def __init__(self, text, ticket_id):
                 self.text = text
+                self.id = ticket_id
 
             def get_attribute(self, _name):
                 return self.text
+
+            def find_elements(self, _by, _selector):
+                return []
 
         class Driver:
             def set_page_load_timeout(self, _seconds):
@@ -68,8 +90,8 @@ class FlightMonitorTests(unittest.TestCase):
 
             def find_elements(self, _by, _selector):
                 return [
-                    Ticket("Vietnam Airlines VN318 00:30 DAD 05h05m 07:35 NRT 15.387.000₫"),
-                    Ticket("Vietnam Airlines VN316 01:30 DAD 05h00m 08:30 NRT 15.387.000₫"),
+                    Ticket("Vietnam Airlines 00:30 DAD 05h05m Bay thẳng 07:35 NRT 15.387.000₫", "ticket-1"),
+                    Ticket("Vietnam Airlines 01:30 DAD 05h00m Bay thẳng 08:30 NRT 15.387.000₫", "ticket-2"),
                 ]
 
         class Wait:
@@ -80,10 +102,9 @@ class FlightMonitorTests(unittest.TestCase):
             "origin": "DAD",
             "destination": "NRT",
             "return_date": None,
-            "skip_count": 3,
             "top_n": 5,
         }
-        with patch("atadi_crawler.WebDriverWait", return_value=Wait()), patch("atadi_crawler.time.sleep"):
+        with patch("trip_crawler.WebDriverWait", return_value=Wait()), patch("trip_crawler.time.sleep"):
             result = scrape_single_day(Driver(), route, "2026-11-14")
         self.assertEqual(len(result), 2)
 

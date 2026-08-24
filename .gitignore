@@ -3,8 +3,9 @@
 .env.*
 config/users.json
 
-# Runtime logs; the price snapshot is intentionally tracked for comparison
+# Runtime logs and browser diagnostics; the price snapshot is intentionally tracked for comparison
 *.log
+debug_artifacts/
 
 # Python
 __pycache__/

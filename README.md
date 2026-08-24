@@ -1,20 +1,22 @@
-# Flight Monitor đa người dùng
+# Flight Monitor đa người dùng với Trip.com
 
-Đây là phiên bản nâng cấp từ crawler Selenium hiện tại. Mỗi người dùng có thể có nhiều route riêng, mỗi route có ngày bay hoặc khoảng ngày, ngưỡng giá, mức giảm tối thiểu và trạng thái bật/tắt. Một lần chạy sẽ crawl tất cả route đang bật, so sánh với snapshot trước và gửi Telegram cho đúng người nhận.
+Đây là phiên bản crawler Selenium theo dõi giá vé trên Trip.com. Mỗi người dùng có thể có nhiều route riêng, mỗi route có ngày bay hoặc khoảng ngày, ngưỡng giá, mức giảm tối thiểu và trạng thái bật/tắt. Mỗi lần chạy sẽ tìm chuyến **một chiều**, so sánh với snapshot trước và gửi Telegram cho đúng người nhận khi có thay đổi đáng chú ý.
 
 ## Các nâng cấp chính
 
-| Nhóm | Phiên bản cũ | Phiên bản mới |
-| --- | --- | --- |
-| Cấu hình | Route và Telegram hard-code trong Python | Cấu hình trong `config/users.json` |
-| Người dùng | Một người nhận | Nhiều người, mỗi người có chat ID riêng |
-| Chuyến bay | Hai route cố định | Không giới hạn số route cấu hình |
-| Ngày bay | Một ngày và tự cộng 3 ngày | Một ngày hoặc khoảng ngày; return date là tùy chọn |
-| Cảnh báo | Gửi lại cả khi không đổi | Cảnh báo khi có thay đổi, giá đạt ngưỡng hoặc lần chạy đầu |
-| So sánh | Ghép chủ yếu theo mã chuyến bay | Ghép theo hãng + mã chuyến + giờ bay, lấy giá thấp nhất |
-| Độ an toàn state | Đổi tên file trực tiếp | Ghi JSON tạm rồi đổi tên nguyên tử |
-| Bí mật | Token nằm trong mã nguồn cũ | Token và chat ID lấy từ biến môi trường/Secrets |
-| Vận hành | Chạy từng file thủ công | Một entrypoint `run_once.py`, sẵn sàng cho cron/GitHub Actions |
+| Nhóm | Chức năng |
+| --- | --- |
+| Nguồn dữ liệu | Trip.com, locale `vi-VN`, tiền tệ `VND` |
+| Kiểu hành trình | Mỗi route là một tìm kiếm một chiều, dùng `triptype=ow`; không gửi `rdate` |
+| Cấu hình | Route và ngày được khai báo trong `config/users.json` |
+| Người dùng | Nhiều người, mỗi người có chat ID Telegram riêng |
+| Chuyến bay | Không giới hạn số route cấu hình |
+| Cảnh báo | Giá thấp nhất, ngưỡng giá tối đa, mức giảm tối thiểu |
+| So sánh | Theo hãng + mã chuyến + giờ khởi hành, lấy giá thấp nhất nếu trùng |
+| DOM động | Chờ `.result-item.J_FlightItem` và lưu HTML/screenshot chẩn đoán khi không có card |
+| State | Ghi snapshot bằng atomic write, không làm hỏng file khi tiến trình bị dừng |
+| Bảo mật | Token/chat ID chỉ lấy từ biến môi trường hoặc GitHub Secrets |
+| Kiểm thử | Có unit test parser, giá VND, fallback và logic cảnh báo |
 
 ## Chạy cục bộ
 
@@ -27,96 +29,142 @@ pip install -r requirements.txt
 cp config/users.example.json config/users.json
 ```
 
-Đặt biến môi trường Telegram:
+Trên Linux nếu dùng Chromium:
+
+```bash
+export CHROME_BIN=/usr/bin/chromium
+```
+
+Chạy thử crawler mà **không gửi Telegram**:
+
+```bash
+python run_once.py \
+  --config config/users.json \
+  --state state/latest.json \
+  --dry-run
+```
+
+`--dry-run` vẫn mở Trip.com và ghi state mới, nhưng chỉ in báo cáo ra terminal. Vì vậy đây là lệnh nên chạy trước để kiểm tra crawler.
+
+Muốn gửi thật sau khi crawler đã trả dữ liệu:
 
 ```bash
 export TELEGRAM_BOT_TOKEN="TOKEN_MOI_CUA_BAN"
-export TELEGRAM_CHAT_ID_OWNER="CHAT_ID_CUA_BAN"
-```
-
-Chạy thử không gửi tin:
-
-```bash
-python run_once.py --config config/users.json --state state/latest.json --dry-run
-```
-
-Muốn gửi thật, bỏ `--dry-run`:
-
-```bash
+export TELEGRAM_CHAT_ID_KHOAFUNG="CHAT_ID_CUA_BAN"
 python run_once.py --config config/users.json --state state/latest.json
 ```
 
-Máy phải có Google Chrome/Chromium tương thích. Selenium 4 sử dụng Selenium Manager để tìm driver; nếu cần chỉ định browser, đặt `CHROME_BIN`.
+## Cấu hình Trip.com một chiều
 
-## Cấu hình người dùng
+Mỗi phần tử trong `users` là một người dùng. `chat_id_env` là tên biến môi trường chứa chat ID, còn `telegram_token_env` là tên biến môi trường chứa token bot. Thông thường nhiều người có thể dùng chung một bot và chỉ khác chat ID.
 
-Mỗi phần tử trong `users` là một người dùng. `chat_id_env` là tên biến môi trường chứa chat ID, còn `telegram_token_env` là tên biến chứa token bot. Thông thường mọi người có thể dùng chung một bot và chỉ khác chat ID.
+Ví dụ cho hai chặng open-jaw:
 
 ```json
 {
-  "id": "owner",
-  "name": "Người dùng chính",
-  "chat_id_env": "TELEGRAM_CHAT_ID_OWNER",
-  "telegram_token_env": "TELEGRAM_BOT_TOKEN",
-  "enabled": true,
-  "routes": [
+  "defaults": {
+    "top_n": 5,
+    "skip_count": 0,
+    "wait_seconds": 40
+  },
+  "users": [
     {
-      "id": "danang-narita-20261114",
-      "label": "Đà Nẵng → Narita",
-      "origin": "DAD",
-      "destination": "NRT",
-      "depart_date": "2026-11-14",
-      "depart_end": "2026-11-14",
-      "return_date": null,
-      "max_price": 3500000,
-      "min_drop": 100000,
-      "enabled": true
+      "id": "owner",
+      "name": "Người dùng chính",
+      "chat_id_env": "TELEGRAM_CHAT_ID_KHOAFUNG",
+      "telegram_token_env": "TELEGRAM_BOT_TOKEN",
+      "enabled": true,
+      "routes": [
+        {
+          "id": "danang-narita-20261114",
+          "label": "Đà Nẵng → Narita",
+          "origin": "DAD",
+          "destination": "NRT",
+          "depart_date": "2026-11-14",
+          "depart_end": "2026-11-14",
+          "return_date": null,
+          "max_price": 3500000,
+          "min_drop": 100000,
+          "nonstop_only": false,
+          "enabled": true
+        },
+        {
+          "id": "kansai-danang-20261122",
+          "label": "Osaka Kansai → Đà Nẵng",
+          "origin": "KIX",
+          "destination": "DAD",
+          "depart_date": "2026-11-22",
+          "depart_end": "2026-11-22",
+          "return_date": null,
+          "max_price": 3500000,
+          "min_drop": 100000,
+          "nonstop_only": false,
+          "enabled": true
+        }
+      ]
     }
   ]
 }
 ```
 
-`depart_end` cho phép theo dõi một khoảng ngày. Nếu chỉ theo dõi một ngày, đặt `depart_end` bằng `depart_date`. `max_price` là ngưỡng cảnh báo; đặt `null` nếu không cần. `min_drop` là mức giảm tối thiểu tính bằng đồng Việt Nam; đặt `0` để mọi mức giảm đều có thể tạo cảnh báo.
+Crawler sẽ tự tạo URL một chiều dạng:
 
-Không đặt token thật trong `users.json`. File này đã được thêm vào `.gitignore`; chỉ commit `users.example.json`.
+```text
+https://vn.trip.com/flights/showfarefirst?dcity=dad&acity=tyo&ddate=2026-11-14&dairport=dad&aairport=nrt&triptype=ow&class=y&locale=vi-VN&curr=VND
+```
+
+Với KIX → DAD, crawler dùng `dcity=kix`, `acity=dad`, `dairport=kix`, `aairport=dad`, `triptype=ow` và ngày `2026-11-22`. `return_date` được giữ trong schema để tương thích về sau nhưng hiện không được dùng khi route là một chiều.
+
+`depart_end` cho phép theo dõi một khoảng ngày. Nếu chỉ theo dõi một ngày, đặt `depart_end` bằng `depart_date`. `max_price` và `min_drop` đều tính bằng **VND**; đặt `max_price` là `null` nếu không cần cảnh báo theo ngưỡng.
+
+## Parser Trip.com
+
+Trip.com tải kết quả bằng JavaScript. Crawler chờ các card `.result-item.J_FlightItem`, sau đó đọc hãng, mã chuyến nếu Trip.com render trong card, giờ đi/đến, sân bay, thời gian bay, điểm dừng và giá. Một số card đầu tiên không render mã chuyến trong DOM; khi đó trường `code` được ghi là `Unknown` thay vì suy đoán. Giá dạng `14.296.000₫` được chuẩn hóa thành số nguyên `14296000` và lưu với trường `currency: "VND"`.
+
+Crawler không dùng `skip_count` để bỏ qua các card Trip.com. Giá trị này chỉ còn trong schema để tương thích cấu hình cũ; mọi card kết quả Trip.com đều được xem xét rồi sắp xếp theo giá. Nếu không tìm thấy card sau thời gian chờ, crawler lưu HTML và screenshot trong `debug_artifacts/` để xem nguyên nhân.
 
 ## GitHub Actions
 
-Workflow tại `.github/workflows/crawl.yml` chạy thủ công hoặc bốn lần mỗi ngày. GitHub Actions sử dụng UTC; lịch mẫu `17 0,6,12,18 * * *` tương đương khoảng 01:17, 07:17, 13:17 và 19:17 theo giờ Việt Nam.
+Workflow tại `.github/workflows/crawl.yml` chạy thủ công hoặc bốn lần mỗi ngày. GitHub Actions dùng UTC; lịch mẫu `17 0,6,12,18 * * *` tương đương khoảng 01:17, 07:17, 13:17 và 19:17 theo giờ Việt Nam.
 
-Trong GitHub repository, tạo các Secrets sau:
+Tạo các Secrets trong **Settings → Secrets and variables → Actions**:
 
 | Secret | Nội dung |
 | --- | --- |
 | `TELEGRAM_BOT_TOKEN` | Token mới của bot Telegram |
-| `TELEGRAM_CHAT_ID_OWNER` | Chat ID của người dùng chính |
-| `TELEGRAM_CHAT_ID_FRIEND_1` | Chat ID của người dùng thứ hai nếu bật người đó |
-| `USERS_JSON_B64` | Tùy chọn; nội dung `users.json` đã mã hóa Base64 nếu không muốn commit cấu hình người dùng |
+| `TELEGRAM_CHAT_ID_KHOAFUNG` | Chat ID của người dùng chính |
+| `TELEGRAM_CHAT_ID_FRIEND_1` | Chat ID của người dùng thứ hai nếu bật |
+| `USERS_JSON_B64` | Tùy chọn; nội dung `users.json` đã mã hóa Base64 |
 
-Cách dùng `USERS_JSON_B64`:
+Nếu `users.json` chỉ chứa route và tên biến môi trường, bạn có thể commit file này. Nếu muốn giữ cấu hình người dùng ngoài repository, chạy:
 
 ```bash
 base64 -w 0 config/users.json
 ```
 
-Copy kết quả vào Secret `USERS_JSON_B64`. Nếu không tạo Secret này, workflow sẽ dùng `config/users.json` đã commit; file đó không nên chứa token, nhưng có thể chứa route và tên biến môi trường.
-
-Sau khi push code, vào **Actions → Flight price monitor → Run workflow** để chạy thử. Kiểm tra log trước khi chờ lịch tự động. State mới được ghi vào `state/latest.json` và commit trở lại repository; không đưa `state/latest.json` vào public repository nếu không muốn lộ lịch sử giá cá nhân.
-
-## Lưu ý về Atadi và route một chiều
-
-Crawler tách hai chặng thành hai route độc lập, ví dụ `DAD.NRT` và `KIX.DAD`. URL Atadi hiện có tham số chứa hai ngày; với route không có `return_date`, code dùng cùng ngày cho hai phần ngày và giữ `leg=0` theo hợp đồng của crawler cũ. Cần chạy `--dry-run` hoặc workflow thủ công để xác nhận kết quả thực tế sau khi Atadi thay đổi giao diện. Nếu giao diện thay đổi, phần cần sửa chủ yếu là selector `.flightTicket` và hàm `parse_ticket_text()` trong `atadi_crawler.py`.
+Sau đó lưu kết quả vào Secret `USERS_JSON_B64`. Workflow sẽ giải mã secret thành `config/users.json` trước khi chạy.
 
 ## Kiểm thử
 
-Chạy bộ test thuần Python, không cần mở Chrome:
+Chạy unit test không mở browser:
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-Bộ test kiểm tra cấu hình đa người dùng, khoảng ngày, xử lý nhiều mức giá trùng chuyến, ngưỡng cảnh báo và ghi state an toàn.
+Chạy crawler thật nhưng không gửi Telegram:
 
-## Lộ trình nâng cấp tiếp theo
+```bash
+CHROME_BIN=/usr/bin/chromium python run_once.py \
+  --config config/users.json \
+  --state state/latest.json \
+  --dry-run
+```
 
-Phiên bản này phù hợp cho một repository do bạn quản lý, trong đó người dùng được thêm bằng cách chỉnh `users.json`. Nếu bạn muốn người dùng tự đăng nhập vào một website rồi tự tạo route mà không sửa file, bước tiếp theo nên là xây dựng dashboard có xác thực, database và job scheduler riêng. Khi đó GitHub Actions không còn là lựa chọn lý tưởng cho từng người dùng độc lập, vì Secrets của repository thuộc về chủ repository; nên chuyển phần cấu hình và lịch chạy sang một backend có database.
+Không đặt token Telegram khi chạy dry-run. Khi chạy thật, nếu thiếu biến môi trường, chương trình sẽ báo rõ tên biến đang thiếu thay vì im lặng.
+
+## Lưu ý vận hành
+
+Trip.com có thể thay đổi class DOM hoặc cơ chế tải dữ liệu. Không nên xem state rỗng là bằng chứng chắc chắn không có chuyến bay; hãy kiểm tra log và thư mục `debug_artifacts/`. Không commit thư mục chẩn đoán, token, `.env` hoặc file `config/users.json` chứa thông tin cá nhân.
+
+Giá và số lượng chuyến bay trong kết quả là dữ liệu động tại thời điểm crawl. Crawler có nhiệm vụ theo dõi và thông báo, không đảm bảo giá còn tồn tại khi bạn mở trang đặt vé.
