@@ -96,7 +96,7 @@ def load_config(path: str | Path) -> tuple[dict[str, Any], tuple[UserConfig, ...
             if return_date is not None:
                 return_date = _validate_date(str(return_date), f"{route_id}.return_date")
             top_n = int(raw_route.get("top_n", defaults.get("top_n", 5)))
-            skip_count = int(raw_route.get("skip_count", defaults.get("skip_count", 3)))
+            skip_count = int(raw_route.get("skip_count", defaults.get("skip_count", 0)))
             if top_n < 1 or skip_count < 0:
                 raise ValueError(f"{route_id}: top_n must be positive and skip_count non-negative")
             max_price = raw_route.get("max_price")

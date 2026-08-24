@@ -1,7 +1,7 @@
 {
   "defaults": {
     "top_n": 5,
-    "skip_count": 3
+    "skip_count": 0
   },
   "users": [
     {

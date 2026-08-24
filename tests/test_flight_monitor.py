@@ -2,8 +2,10 @@ import json
 import tempfile
 import unittest
 from datetime import datetime
+from unittest.mock import patch
 from pathlib import Path
 
+from atadi_crawler import parse_ticket_text, scrape_single_day
 from flight_monitor import (
     atomic_write_json,
     build_user_message,
@@ -40,6 +42,50 @@ class FlightMonitorTests(unittest.TestCase):
         flights = [{"airline": "Vietjet Air", "code": "VJ123", "time": "08:00", "price": 3000000}]
         _, should_alert = build_user_message(users[0], route, flights, flights, datetime(2026, 8, 24, 8, 0))
         self.assertTrue(should_alert)
+
+    def test_parser_reads_atadi_ticket_text(self):
+        parsed = parse_ticket_text(
+            "Vietnam Airlines VN318 00:30 DAD 05h05m Bay thẳng 07:35 NRT 15.387.000₫"
+        )
+        self.assertEqual(parsed["code"], "VN318")
+        self.assertEqual(parsed["time"], "00:30")
+        self.assertEqual(parsed["price"], 15387000)
+
+    def test_old_skip_count_does_not_drop_all_cards(self):
+        class Ticket:
+            def __init__(self, text):
+                self.text = text
+
+            def get_attribute(self, _name):
+                return self.text
+
+        class Driver:
+            def set_page_load_timeout(self, _seconds):
+                pass
+
+            def get(self, _url):
+                pass
+
+            def find_elements(self, _by, _selector):
+                return [
+                    Ticket("Vietnam Airlines VN318 00:30 DAD 05h05m 07:35 NRT 15.387.000₫"),
+                    Ticket("Vietnam Airlines VN316 01:30 DAD 05h00m 08:30 NRT 15.387.000₫"),
+                ]
+
+        class Wait:
+            def until(self, _condition):
+                return True
+
+        route = {
+            "origin": "DAD",
+            "destination": "NRT",
+            "return_date": None,
+            "skip_count": 3,
+            "top_n": 5,
+        }
+        with patch("atadi_crawler.WebDriverWait", return_value=Wait()), patch("atadi_crawler.time.sleep"):
+            result = scrape_single_day(Driver(), route, "2026-11-14")
+        self.assertEqual(len(result), 2)
 
     def test_atomic_write_json(self):
         with tempfile.TemporaryDirectory() as directory:

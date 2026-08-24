@@ -105,7 +105,11 @@ def scrape_single_day(driver: webdriver.Chrome, route: dict[str, Any], date_str:
 
     results: list[dict[str, Any]] = []
     tickets = driver.find_elements(By.CSS_SELECTOR, ".flightTicket")
-    skip_count = int(route.get("skip_count", 3))
+    requested_skip = int(route.get("skip_count", 0))
+    # Atadi currently returns a small set of visible flight cards. If an old
+    # configuration asks to skip all cards, fall back to zero rather than
+    # silently producing an empty result.
+    skip_count = requested_skip if requested_skip < len(tickets) else 0
     top_n = int(route.get("top_n", 5))
     for ticket in tickets[skip_count:]:
         try:

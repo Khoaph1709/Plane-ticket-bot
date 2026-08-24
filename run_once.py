@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 from dataclasses import replace
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,6 +20,10 @@ from telegram_notifier import send_from_environment
 
 
 LOG = logging.getLogger("flight-monitor")
+logging.basicConfig(
+    level=os.getenv("LOG_LEVEL", "INFO").upper(),
+    format="%(asctime)s | %(levelname)s | %(message)s",
+)
 
 
 def route_state(previous_user: dict[str, Any], route_id: str) -> dict[str, Any]:
@@ -32,7 +37,22 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true", help="Do not send Telegram messages")
     args = parser.parse_args()
 
+    LOG.info("Loading configuration: %s", args.config)
     _, users = load_config(args.config)
+    enabled_users = [user for user in users if user.enabled]
+    if not enabled_users:
+        raise RuntimeError("No enabled users found in configuration")
+    if not args.dry_run:
+        for user in enabled_users:
+            if not os.getenv(user.telegram_token_env, "").strip():
+                raise RuntimeError(
+                    f"Missing Telegram token: set environment variable {user.telegram_token_env!r} for user {user.id!r}"
+                )
+            if not os.getenv(user.chat_id_env, "").strip():
+                raise RuntimeError(
+                    f"Missing Telegram chat ID: set environment variable {user.chat_id_env!r} for user {user.id!r}"
+                )
+    LOG.info("Enabled users: %d; routes: %d", len(enabled_users), sum(len(user.routes) for user in enabled_users))
     old_state = read_json(args.state, {"users": {}})
     old_users = old_state.get("users", {})
     new_state: dict[str, Any] = {
@@ -54,6 +74,8 @@ def main() -> int:
                     continue
                 LOG.info("Crawling %s / %s", user.id, route.id)
                 current_data = crawl_route(driver, route_to_atadi_config(route))
+                flight_count = sum(len(flights) for flights in current_data.values())
+                LOG.info("Route %s/%s returned %d flight option(s)", user.id, route.id, flight_count)
                 new_state["users"][user.id]["routes"][route.id] = {
                     "label": route.label,
                     "origin": route.origin,
@@ -79,6 +101,7 @@ def main() -> int:
                     if should_alert:
                         messages.append(message)
                 if messages and not args.dry_run:
+                    LOG.info("Sending %d Telegram message(s) to %s/%s", len(messages), user.id, user.chat_id_env)
                     send_from_environment(user.telegram_token_env, user.chat_id_env, "\n\n".join(messages))
                 elif messages:
                     LOG.info("DRY RUN for %s/%s:\n%s", user.id, route.id, "\n\n".join(messages))
@@ -86,8 +109,9 @@ def main() -> int:
         atomic_write_json(args.state, new_state)
         LOG.info("Completed %d route(s)", successful_routes)
         return 0
-    except Exception:
+    except Exception as exc:
         LOG.exception("The crawl run failed; previous state was left untouched")
+        print(f"ERROR: {exc}", flush=True)
         return 1
     finally:
         if driver is not None:
