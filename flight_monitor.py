@@ -169,7 +169,7 @@ route_to_atadi_config = route_to_trip_config
 
 
 def flight_key(flight: dict[str, Any]) -> str:
-    return "|".join(str(flight.get(field, "Unknown")) for field in ("airline", "code", "time"))
+    return "|".join(str(flight.get(field) or "N/A") for field in ("airline", "code", "time"))
 
 
 def price_map(flights: Iterable[dict[str, Any]]) -> dict[str, int]:

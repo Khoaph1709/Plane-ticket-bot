@@ -68,6 +68,7 @@ class FlightMonitorTests(unittest.TestCase):
         self.assertEqual(parsed["price"], 6107000)
         self.assertEqual(parsed["currency"], "VND")
         self.assertEqual(parsed["time"], "21:05")
+        self.assertEqual(parsed["code"], "N/A")
 
     def test_trip_crawler_reads_cards_when_wait_is_satisfied(self):
         class Ticket:

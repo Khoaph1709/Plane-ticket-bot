@@ -171,11 +171,11 @@ def parse_trip_card(card: Any, route: dict[str, Any], date_str: str) -> dict[str
         )
     if not airline:
         airline = _airline_from_logo(card)
-    airline = airline.split(" Được vận hành bởi ", 1)[0].strip() or "Unknown"
+    airline = airline.split(" Được vận hành bởi ", 1)[0].strip() or "N/A"
     code = _first_text(card, ("[data-testid='flight-number']", ".flight-number", ".flight-code"))
     if not code:
         code_match = CODE_RE.search(raw_text)
-        code = code_match.group(1) if code_match else "Unknown"
+        code = code_match.group(1) if code_match else "N/A"
 
     times = TIME_RE.findall(raw_text)
     # TIME_RE has a capturing group for the hour; use a second full match for
@@ -194,11 +194,11 @@ def parse_trip_card(card: Any, route: dict[str, Any], date_str: str) -> dict[str
     return {
         "airline": airline,
         "code": code,
-        "time": full_times[0] if full_times else (times[0] if times else "Unknown"),
-        "arrival_time": full_times[1] if len(full_times) > 1 else "Unknown",
+        "time": full_times[0] if full_times else (times[0] if times else "N/A"),
+        "arrival_time": full_times[1] if len(full_times) > 1 else "N/A",
         "origin": airports[0] if airports else route["origin"],
         "destination": airports[1] if len(airports) > 1 else route["destination"],
-        "duration": duration or "Unknown",
+        "duration": duration or "N/A",
         "stops": stop_text or ("Bay thẳng" if "Bay thẳng" in raw_text else "Có điểm dừng"),
         "price": price,
         "currency": "VND",

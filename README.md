@@ -119,7 +119,7 @@ Với KIX → DAD, crawler dùng `dcity=kix`, `acity=dad`, `dairport=kix`, `aair
 
 ## Parser Trip.com
 
-Trip.com tải kết quả bằng JavaScript. Crawler chờ các card `.result-item.J_FlightItem`, sau đó đọc hãng, mã chuyến nếu Trip.com render trong card, giờ đi/đến, sân bay, thời gian bay, điểm dừng và giá. Một số card đầu tiên không render mã chuyến trong DOM; khi đó trường `code` được ghi là `Unknown` thay vì suy đoán. Giá dạng `14.296.000₫` được chuẩn hóa thành số nguyên `14296000` và lưu với trường `currency: "VND"`.
+Trip.com tải kết quả bằng JavaScript. Crawler chờ các card `.result-item.J_FlightItem`, sau đó đọc hãng, mã chuyến nếu Trip.com render trong card, giờ đi/đến, sân bay, thời gian bay, điểm dừng và giá. Một số card đầu tiên không render mã chuyến trong DOM; khi đó trường `code` được ghi là `N/A` thay vì suy đoán. Giá dạng `14.296.000₫` được chuẩn hóa thành số nguyên `14296000` và lưu với trường `currency: "VND"`.
 
 Crawler không dùng `skip_count` để bỏ qua các card Trip.com. Giá trị này chỉ còn trong schema để tương thích cấu hình cũ; mọi card kết quả Trip.com đều được xem xét rồi sắp xếp theo giá. Nếu không tìm thấy card sau thời gian chờ, crawler lưu HTML và screenshot trong `debug_artifacts/` để xem nguyên nhân.
 
