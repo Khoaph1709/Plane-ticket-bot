@@ -1,0 +1,62 @@
+{
+  "defaults": {
+    "top_n": 5,
+    "skip_count": 3
+  },
+  "users": [
+    {
+      "id": "owner",
+      "name": "Người dùng chính",
+      "chat_id_env": "TELEGRAM_CHAT_ID_OWNER",
+      "telegram_token_env": "TELEGRAM_BOT_TOKEN",
+      "enabled": true,
+      "routes": [
+        {
+          "id": "danang-narita-20261114",
+          "label": "Đà Nẵng → Narita",
+          "origin": "DAD",
+          "destination": "NRT",
+          "depart_date": "2026-11-14",
+          "depart_end": "2026-11-14",
+          "return_date": null,
+          "max_price": 3500000,
+          "min_drop": 100000,
+          "enabled": true
+        },
+        {
+          "id": "kansai-danang-20261122",
+          "label": "Osaka Kansai → Đà Nẵng",
+          "origin": "KIX",
+          "destination": "DAD",
+          "depart_date": "2026-11-22",
+          "depart_end": "2026-11-22",
+          "return_date": null,
+          "max_price": 3500000,
+          "min_drop": 100000,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "friend-1",
+      "name": "Bạn A",
+      "chat_id_env": "TELEGRAM_CHAT_ID_FRIEND_1",
+      "telegram_token_env": "TELEGRAM_BOT_TOKEN",
+      "enabled": false,
+      "routes": [
+        {
+          "id": "sample-route",
+          "label": "Ví dụ tuyến riêng",
+          "origin": "HAN",
+          "destination": "NRT",
+          "depart_date": "2026-12-01",
+          "depart_end": "2026-12-05",
+          "return_date": null,
+          "max_price": null,
+          "min_drop": 0,
+          "enabled": true
+        }
+      ]
+    }
+  ]
+}
