@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-21T21:58:05.605652+00:00",
+  "updated_at": "2026-09-22T04:54:26.582054+00:00",
   "users": {
     "owner": {
       "name": "Người dùng chính",
@@ -14,20 +14,6 @@
           "data": {
             "2026-11-17": [
               {
-                "airline": "VietJet Air, Air Seoul",
-                "code": "N/A",
-                "time": "23:40",
-                "arrival_time": "11:50",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "10g 10p",
-                "stops": "3g 20p tại Seoul",
-                "price": 4153000,
-                "currency": "VND",
-                "date": "2026-11-17",
-                "route": "DAD.NRT"
-              },
-              {
                 "airline": "VietJet Air, Parata Air",
                 "code": "N/A",
                 "time": "23:40",
@@ -36,7 +22,7 @@
                 "destination": "NRT",
                 "duration": "10g 25p",
                 "stops": "3g 50p tại Seoul",
-                "price": 4367000,
+                "price": 4377000,
                 "currency": "VND",
                 "date": "2026-11-17",
                 "route": "DAD.NRT"
@@ -50,7 +36,7 @@
                 "destination": "NRT",
                 "duration": "11g 5p",
                 "stops": "4g 30p tại Seoul",
-                "price": 4433000,
+                "price": 4481000,
                 "currency": "VND",
                 "date": "2026-11-17",
                 "route": "DAD.NRT"
@@ -64,7 +50,7 @@
                 "destination": "NRT",
                 "duration": "9g 25p",
                 "stops": "3g tại Hà Nội",
-                "price": 5218000,
+                "price": 5220000,
                 "currency": "VND",
                 "date": "2026-11-17",
                 "route": "DAD.NRT"
@@ -78,67 +64,9 @@
                 "destination": "NRT",
                 "duration": "11g 20p",
                 "stops": "4g 15p tại TP. Hồ Chí Minh",
-                "price": 5218000,
+                "price": 5220000,
                 "currency": "VND",
                 "date": "2026-11-17",
-                "route": "DAD.NRT"
-              }
-            ],
-            "2026-11-18": [
-              {
-                "airline": "VietJet Air, Jeju Air",
-                "code": "N/A",
-                "time": "00:30",
-                "arrival_time": "12:55",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "10g 25p",
-                "stops": "3g 55p tại Busan",
-                "price": 4662000,
-                "currency": "VND",
-                "date": "2026-11-18",
-                "route": "DAD.NRT"
-              },
-              {
-                "airline": "VietJet Air, Jin Air",
-                "code": "N/A",
-                "time": "00:30",
-                "arrival_time": "12:00",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "9g 30p",
-                "stops": "2g 40p tại Busan",
-                "price": 4715000,
-                "currency": "VND",
-                "date": "2026-11-18",
-                "route": "DAD.NRT"
-              },
-              {
-                "airline": "VietJet Air",
-                "code": "N/A",
-                "time": "18:15",
-                "arrival_time": "07:35",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "11g 20p",
-                "stops": "4g 15p tại TP. Hồ Chí Minh",
-                "price": 5356000,
-                "currency": "VND",
-                "date": "2026-11-18",
-                "route": "DAD.NRT"
-              },
-              {
-                "airline": "VietJet Air",
-                "code": "N/A",
-                "time": "20:35",
-                "arrival_time": "08:00",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "9g 25p",
-                "stops": "3g tại Hà Nội",
-                "price": 5391000,
-                "currency": "VND",
-                "date": "2026-11-18",
                 "route": "DAD.NRT"
               },
               {
@@ -150,7 +78,79 @@
                 "destination": "NRT",
                 "duration": "11g 25p",
                 "stops": "5g tại Hà Nội",
-                "price": 5391000,
+                "price": 5220000,
+                "currency": "VND",
+                "date": "2026-11-17",
+                "route": "DAD.NRT"
+              }
+            ],
+            "2026-11-18": [
+              {
+                "airline": "VietJet Air, Jin Air",
+                "code": "N/A",
+                "time": "00:30",
+                "arrival_time": "12:00",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "9g 30p",
+                "stops": "2g 40p tại Busan",
+                "price": 4649000,
+                "currency": "VND",
+                "date": "2026-11-18",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "VietJet Air",
+                "code": "N/A",
+                "time": "18:15",
+                "arrival_time": "07:35",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "11g 20p",
+                "stops": "4g 15p tại TP. Hồ Chí Minh",
+                "price": 5358000,
+                "currency": "VND",
+                "date": "2026-11-18",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "VietJet Air",
+                "code": "N/A",
+                "time": "14:30",
+                "arrival_time": "07:35",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "15g 5p",
+                "stops": "8g tại TP. Hồ Chí Minh",
+                "price": 5358000,
+                "currency": "VND",
+                "date": "2026-11-18",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "Hong Kong Airlines",
+                "code": "N/A",
+                "time": "16:50",
+                "arrival_time": "19:25",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "24g 35p",
+                "stops": "18g 30p tại Hồng Kông",
+                "price": 5441000,
+                "currency": "VND",
+                "date": "2026-11-18",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "VietJet Air",
+                "code": "N/A",
+                "time": "20:35",
+                "arrival_time": "08:00",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "9g 25p",
+                "stops": "3g tại Hà Nội",
+                "price": 6225000,
                 "currency": "VND",
                 "date": "2026-11-18",
                 "route": "DAD.NRT"
@@ -158,29 +158,29 @@
             ],
             "2026-11-19": [
               {
-                "airline": "Air Seoul",
+                "airline": "VietJet Air, Jin Air",
                 "code": "N/A",
-                "time": "00:40",
-                "arrival_time": "19:00",
+                "time": "00:30",
+                "arrival_time": "12:00",
                 "origin": "DAD",
                 "destination": "NRT",
-                "duration": "16g 20p",
-                "stops": "9g 25p tại Seoul",
-                "price": 4243000,
+                "duration": "9g 30p",
+                "stops": "2g 40p tại Busan",
+                "price": 5123000,
                 "currency": "VND",
                 "date": "2026-11-19",
                 "route": "DAD.NRT"
               },
               {
-                "airline": "Air Seoul",
+                "airline": "VietJet Air",
                 "code": "N/A",
-                "time": "00:40",
-                "arrival_time": "11:50",
+                "time": "23:45",
+                "arrival_time": "15:25",
                 "origin": "DAD",
                 "destination": "NRT",
-                "duration": "9g 10p",
-                "stops": "2g 5p tại Seoul",
-                "price": 4838000,
+                "duration": "13g 40p",
+                "stops": "7g 15p tại Hà Nội",
+                "price": 5220000,
                 "currency": "VND",
                 "date": "2026-11-19",
                 "route": "DAD.NRT"
@@ -194,7 +194,7 @@
                 "destination": "NRT",
                 "duration": "11g 20p",
                 "stops": "4g 15p tại TP. Hồ Chí Minh",
-                "price": 5811000,
+                "price": 5812000,
                 "currency": "VND",
                 "date": "2026-11-19",
                 "route": "DAD.NRT"
@@ -208,7 +208,7 @@
                 "destination": "NRT",
                 "duration": "23g 25p",
                 "stops": "16g 20p tại TP. Hồ Chí Minh",
-                "price": 5811000,
+                "price": 5812000,
                 "currency": "VND",
                 "date": "2026-11-19",
                 "route": "DAD.NRT"
@@ -222,7 +222,7 @@
                 "destination": "NRT",
                 "duration": "12g 25p",
                 "stops": "6g 5p tại Hồng Kông",
-                "price": 6071000,
+                "price": 6070000,
                 "currency": "VND",
                 "date": "2026-11-19",
                 "route": "DAD.NRT"
@@ -230,15 +230,15 @@
             ],
             "2026-11-20": [
               {
-                "airline": "Air Seoul",
+                "airline": "VietJet Air, Jeju Air",
                 "code": "N/A",
-                "time": "00:40",
-                "arrival_time": "11:50",
+                "time": "23:40",
+                "arrival_time": "14:10",
                 "origin": "DAD",
                 "destination": "NRT",
-                "duration": "9g 10p",
-                "stops": "2g 5p tại Seoul",
-                "price": 4944000,
+                "duration": "12g 30p",
+                "stops": "5g 30p tại Seoul",
+                "price": 4879000,
                 "currency": "VND",
                 "date": "2026-11-20",
                 "route": "DAD.NRT"
@@ -252,7 +252,7 @@
                 "destination": "NRT",
                 "duration": "9g 40p",
                 "stops": "2g 45p tại Seoul",
-                "price": 4994000,
+                "price": 4969000,
                 "currency": "VND",
                 "date": "2026-11-20",
                 "route": "DAD.NRT"
@@ -266,7 +266,7 @@
                 "destination": "NRT",
                 "duration": "20g 20p",
                 "stops": "14g 25p tại Hồng Kông",
-                "price": 5303000,
+                "price": 5301000,
                 "currency": "VND",
                 "date": "2026-11-20",
                 "route": "DAD.NRT"
@@ -280,21 +280,21 @@
                 "destination": "NRT",
                 "duration": "11g 20p",
                 "stops": "4g 15p tại TP. Hồ Chí Minh",
-                "price": 5811000,
+                "price": 5812000,
                 "currency": "VND",
                 "date": "2026-11-20",
                 "route": "DAD.NRT"
               },
               {
-                "airline": "Trinity Airways",
+                "airline": "VietJet Air",
                 "code": "N/A",
-                "time": "23:35",
-                "arrival_time": "10:55",
+                "time": "20:35",
+                "arrival_time": "08:00",
                 "origin": "DAD",
                 "destination": "NRT",
-                "duration": "9g 20p",
-                "stops": "2g 30p tại Seoul",
-                "price": 6317000,
+                "duration": "9g 25p",
+                "stops": "3g tại Hà Nội",
+                "price": 5817000,
                 "currency": "VND",
                 "date": "2026-11-20",
                 "route": "DAD.NRT"
@@ -302,34 +302,6 @@
             ],
             "2026-11-21": [
               {
-                "airline": "VietJet Air, Air Seoul",
-                "code": "N/A",
-                "time": "23:40",
-                "arrival_time": "11:50",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "10g 10p",
-                "stops": "3g 20p tại Seoul",
-                "price": 5309000,
-                "currency": "VND",
-                "date": "2026-11-21",
-                "route": "DAD.NRT"
-              },
-              {
-                "airline": "Eastar Jet",
-                "code": "N/A",
-                "time": "01:20",
-                "arrival_time": "10:10",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "30g 50p",
-                "stops": "23g 10p tại Seoul",
-                "price": 5700000,
-                "currency": "VND",
-                "date": "2026-11-21",
-                "route": "DAD.NRT"
-              },
-              {
                 "airline": "VietJet Air",
                 "code": "N/A",
                 "time": "18:15",
@@ -338,7 +310,21 @@
                 "destination": "NRT",
                 "duration": "11g 20p",
                 "stops": "4g 15p tại TP. Hồ Chí Minh",
-                "price": 5813000,
+                "price": 5810000,
+                "currency": "VND",
+                "date": "2026-11-21",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "HK Express",
+                "code": "N/A",
+                "time": "10:20",
+                "arrival_time": "20:00",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "7g 40p",
+                "stops": "1g 40p tại Hồng Kông",
+                "price": 5974000,
                 "currency": "VND",
                 "date": "2026-11-21",
                 "route": "DAD.NRT"
@@ -352,7 +338,7 @@
                 "destination": "NRT",
                 "duration": "8g 10p",
                 "stops": "2g tại Hồng Kông",
-                "price": 6071000,
+                "price": 6070000,
                 "currency": "VND",
                 "date": "2026-11-21",
                 "route": "DAD.NRT"
@@ -366,14 +352,28 @@
                 "destination": "NRT",
                 "duration": "12g 25p",
                 "stops": "6g 5p tại Hồng Kông",
-                "price": 6071000,
+                "price": 6070000,
+                "currency": "VND",
+                "date": "2026-11-21",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "Trinity Airways",
+                "code": "N/A",
+                "time": "23:35",
+                "arrival_time": "10:55",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "9g 20p",
+                "stops": "2g 30p tại Seoul",
+                "price": 6364000,
                 "currency": "VND",
                 "date": "2026-11-21",
                 "route": "DAD.NRT"
               }
             ]
           },
-          "last_success_at": "2026-09-21T21:59:19.549049+00:00"
+          "last_success_at": "2026-09-22T04:55:34.952556+00:00"
         },
         "owner-kansai-danang-20261122": {
           "label": "Osaka Kansai → Đà Nẵng (khoảng 24–28/11)",
@@ -392,7 +392,7 @@
                 "destination": "DAD",
                 "duration": "11g 30p",
                 "stops": "4g 30p tại Seoul",
-                "price": 4948000,
+                "price": 5121000,
                 "currency": "VND",
                 "date": "2026-11-24",
                 "route": "KIX.DAD"
@@ -406,7 +406,7 @@
                 "destination": "DAD",
                 "duration": "11g 50p",
                 "stops": "4g 45p tại Seoul",
-                "price": 5527000,
+                "price": 5481000,
                 "currency": "VND",
                 "date": "2026-11-24",
                 "route": "KIX.DAD"
@@ -420,7 +420,7 @@
                 "destination": "DAD",
                 "duration": "10g 20p",
                 "stops": "3g tại TP. Hồ Chí Minh",
-                "price": 5697000,
+                "price": 5706000,
                 "currency": "VND",
                 "date": "2026-11-24",
                 "route": "KIX.DAD"
@@ -434,7 +434,7 @@
                 "destination": "DAD",
                 "duration": "9g 50p",
                 "stops": "2g 55p tại Seoul",
-                "price": 5761000,
+                "price": 5755000,
                 "currency": "VND",
                 "date": "2026-11-24",
                 "route": "KIX.DAD"
@@ -448,27 +448,13 @@
                 "destination": "DAD",
                 "duration": "8g",
                 "stops": "1g 15p tại Hồng Kông",
-                "price": 7194000,
+                "price": 7168000,
                 "currency": "VND",
                 "date": "2026-11-24",
                 "route": "KIX.DAD"
               }
             ],
             "2026-11-25": [
-              {
-                "airline": "Air Seoul",
-                "code": "N/A",
-                "time": "16:00",
-                "arrival_time": "23:40",
-                "origin": "KIX",
-                "destination": "DAD",
-                "duration": "9g 40p",
-                "stops": "3g tại Seoul",
-                "price": 5088000,
-                "currency": "VND",
-                "date": "2026-11-25",
-                "route": "KIX.DAD"
-              },
               {
                 "airline": "Asiana Airlines, VietJet Air",
                 "code": "N/A",
@@ -478,7 +464,7 @@
                 "destination": "DAD",
                 "duration": "11g 50p",
                 "stops": "4g 45p tại Seoul",
-                "price": 5527000,
+                "price": 5481000,
                 "currency": "VND",
                 "date": "2026-11-25",
                 "route": "KIX.DAD"
@@ -492,7 +478,7 @@
                 "destination": "DAD",
                 "duration": "10g 20p",
                 "stops": "3g tại TP. Hồ Chí Minh",
-                "price": 5531000,
+                "price": 5542000,
                 "currency": "VND",
                 "date": "2026-11-25",
                 "route": "KIX.DAD"
@@ -506,7 +492,21 @@
                 "destination": "DAD",
                 "duration": "12g 20p",
                 "stops": "5g tại TP. Hồ Chí Minh",
-                "price": 5531000,
+                "price": 5542000,
+                "currency": "VND",
+                "date": "2026-11-25",
+                "route": "KIX.DAD"
+              },
+              {
+                "airline": "Hong Kong Airlines",
+                "code": "N/A",
+                "time": "09:50",
+                "arrival_time": "20:05",
+                "origin": "KIX",
+                "destination": "DAD",
+                "duration": "12g 15p",
+                "stops": "5g 20p tại Hồng Kông",
+                "price": 6962000,
                 "currency": "VND",
                 "date": "2026-11-25",
                 "route": "KIX.DAD"
@@ -520,7 +520,7 @@
                 "destination": "DAD",
                 "duration": "8g",
                 "stops": "1g 15p tại Hồng Kông",
-                "price": 6991000,
+                "price": 6965000,
                 "currency": "VND",
                 "date": "2026-11-25",
                 "route": "KIX.DAD"
@@ -528,29 +528,15 @@
             ],
             "2026-11-26": [
               {
-                "airline": "Air Seoul",
-                "code": "N/A",
-                "time": "10:00",
-                "arrival_time": "23:40",
-                "origin": "KIX",
-                "destination": "DAD",
-                "duration": "15g 40p",
-                "stops": "9g tại Seoul",
-                "price": 5191000,
-                "currency": "VND",
-                "date": "2026-11-26",
-                "route": "KIX.DAD"
-              },
-              {
                 "airline": "Jeju Air",
                 "code": "N/A",
-                "time": "09:50",
+                "time": "12:00",
                 "arrival_time": "13:05",
                 "origin": "KIX",
                 "destination": "DAD",
-                "duration": "29g 15p",
-                "stops": "22g 10p tại Seoul",
-                "price": 5627000,
+                "duration": "27g 5p",
+                "stops": "20g tại Seoul",
+                "price": 5390000,
                 "currency": "VND",
                 "date": "2026-11-26",
                 "route": "KIX.DAD"
@@ -564,7 +550,35 @@
                 "destination": "DAD",
                 "duration": "10g 20p",
                 "stops": "3g tại TP. Hồ Chí Minh",
-                "price": 5697000,
+                "price": 5708000,
+                "currency": "VND",
+                "date": "2026-11-26",
+                "route": "KIX.DAD"
+              },
+              {
+                "airline": "Jeju Air",
+                "code": "N/A",
+                "time": "10:50",
+                "arrival_time": "13:05",
+                "origin": "KIX",
+                "destination": "DAD",
+                "duration": "28g 15p",
+                "stops": "21g 10p tại Seoul",
+                "price": 5729000,
+                "currency": "VND",
+                "date": "2026-11-26",
+                "route": "KIX.DAD"
+              },
+              {
+                "airline": "Jeju Air",
+                "code": "N/A",
+                "time": "09:50",
+                "arrival_time": "13:05",
+                "origin": "KIX",
+                "destination": "DAD",
+                "duration": "29g 15p",
+                "stops": "22g 10p tại Seoul",
+                "price": 5829000,
                 "currency": "VND",
                 "date": "2026-11-26",
                 "route": "KIX.DAD"
@@ -578,21 +592,7 @@
                 "destination": "DAD",
                 "duration": "8g",
                 "stops": "1g 15p tại Hồng Kông",
-                "price": 7194000,
-                "currency": "VND",
-                "date": "2026-11-26",
-                "route": "KIX.DAD"
-              },
-              {
-                "airline": "Air Macau",
-                "code": "N/A",
-                "time": "13:45",
-                "arrival_time": "19:00",
-                "origin": "KIX",
-                "destination": "DAD",
-                "duration": "7g 15p",
-                "stops": "1g 5p tại Ma Cao",
-                "price": 7199000,
+                "price": 7168000,
                 "currency": "VND",
                 "date": "2026-11-26",
                 "route": "KIX.DAD"
@@ -608,7 +608,7 @@
                 "destination": "DAD",
                 "duration": "20g 5p",
                 "stops": "13g 5p tại Seoul",
-                "price": 5080000,
+                "price": 5070000,
                 "currency": "VND",
                 "date": "2026-11-27",
                 "route": "KIX.DAD"
@@ -622,7 +622,7 @@
                 "destination": "DAD",
                 "duration": "14g 25p",
                 "stops": "7g 30p tại Seoul",
-                "price": 5290000,
+                "price": 5272000,
                 "currency": "VND",
                 "date": "2026-11-27",
                 "route": "KIX.DAD"
@@ -636,21 +636,7 @@
                 "destination": "DAD",
                 "duration": "12g 40p",
                 "stops": "5g 20p tại Seoul",
-                "price": 5470000,
-                "currency": "VND",
-                "date": "2026-11-27",
-                "route": "KIX.DAD"
-              },
-              {
-                "airline": "VietJet Air",
-                "code": "N/A",
-                "time": "09:30",
-                "arrival_time": "17:50",
-                "origin": "KIX",
-                "destination": "DAD",
-                "duration": "10g 20p",
-                "stops": "3g tại TP. Hồ Chí Minh",
-                "price": 5697000,
+                "price": 5430000,
                 "currency": "VND",
                 "date": "2026-11-27",
                 "route": "KIX.DAD"
@@ -664,7 +650,21 @@
                 "destination": "DAD",
                 "duration": "11g 50p",
                 "stops": "4g 45p tại Seoul",
-                "price": 5732000,
+                "price": 5690000,
+                "currency": "VND",
+                "date": "2026-11-27",
+                "route": "KIX.DAD"
+              },
+              {
+                "airline": "VietJet Air",
+                "code": "N/A",
+                "time": "09:30",
+                "arrival_time": "17:50",
+                "origin": "KIX",
+                "destination": "DAD",
+                "duration": "10g 20p",
+                "stops": "3g tại TP. Hồ Chí Minh",
+                "price": 5706000,
                 "currency": "VND",
                 "date": "2026-11-27",
                 "route": "KIX.DAD"
@@ -680,7 +680,7 @@
                 "destination": "DAD",
                 "duration": "10g 20p",
                 "stops": "3g tại TP. Hồ Chí Minh",
-                "price": 5531000,
+                "price": 5542000,
                 "currency": "VND",
                 "date": "2026-11-28",
                 "route": "KIX.DAD"
@@ -694,7 +694,7 @@
                 "destination": "DAD",
                 "duration": "12g 20p",
                 "stops": "5g tại TP. Hồ Chí Minh",
-                "price": 5531000,
+                "price": 5542000,
                 "currency": "VND",
                 "date": "2026-11-28",
                 "route": "KIX.DAD"
@@ -708,7 +708,21 @@
                 "destination": "DAD",
                 "duration": "11g 50p",
                 "stops": "4g 45p tại Seoul",
-                "price": 5779000,
+                "price": 5735000,
+                "currency": "VND",
+                "date": "2026-11-28",
+                "route": "KIX.DAD"
+              },
+              {
+                "airline": "Parata Air",
+                "code": "N/A",
+                "time": "11:45",
+                "arrival_time": "21:15",
+                "origin": "KIX",
+                "destination": "DAD",
+                "duration": "11g 30p",
+                "stops": "4g 30p tại Seoul",
+                "price": 6141000,
                 "currency": "VND",
                 "date": "2026-11-28",
                 "route": "KIX.DAD"
@@ -722,28 +736,14 @@
                 "destination": "DAD",
                 "duration": "7g 15p",
                 "stops": "1g 5p tại Ma Cao",
-                "price": 7999000,
-                "currency": "VND",
-                "date": "2026-11-28",
-                "route": "KIX.DAD"
-              },
-              {
-                "airline": "Korean Air",
-                "code": "N/A",
-                "time": "14:00",
-                "arrival_time": "21:40",
-                "origin": "KIX",
-                "destination": "DAD",
-                "duration": "9g 40p",
-                "stops": "2g 25p tại Seoul",
-                "price": 8478000,
+                "price": 7937000,
                 "currency": "VND",
                 "date": "2026-11-28",
                 "route": "KIX.DAD"
               }
             ]
           },
-          "last_success_at": "2026-09-21T22:00:17.616939+00:00"
+          "last_success_at": "2026-09-22T04:56:46.760865+00:00"
         }
       }
     },
@@ -759,20 +759,6 @@
           "data": {
             "2026-11-17": [
               {
-                "airline": "VietJet Air, Air Seoul",
-                "code": "N/A",
-                "time": "23:40",
-                "arrival_time": "11:50",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "10g 10p",
-                "stops": "3g 20p tại Seoul",
-                "price": 4153000,
-                "currency": "VND",
-                "date": "2026-11-17",
-                "route": "DAD.NRT"
-              },
-              {
                 "airline": "VietJet Air, Parata Air",
                 "code": "N/A",
                 "time": "23:40",
@@ -781,7 +767,7 @@
                 "destination": "NRT",
                 "duration": "10g 25p",
                 "stops": "3g 50p tại Seoul",
-                "price": 4367000,
+                "price": 4377000,
                 "currency": "VND",
                 "date": "2026-11-17",
                 "route": "DAD.NRT"
@@ -795,7 +781,7 @@
                 "destination": "NRT",
                 "duration": "11g 5p",
                 "stops": "4g 30p tại Seoul",
-                "price": 4433000,
+                "price": 4481000,
                 "currency": "VND",
                 "date": "2026-11-17",
                 "route": "DAD.NRT"
@@ -809,7 +795,7 @@
                 "destination": "NRT",
                 "duration": "9g 25p",
                 "stops": "3g tại Hà Nội",
-                "price": 5218000,
+                "price": 5220000,
                 "currency": "VND",
                 "date": "2026-11-17",
                 "route": "DAD.NRT"
@@ -823,67 +809,9 @@
                 "destination": "NRT",
                 "duration": "11g 20p",
                 "stops": "4g 15p tại TP. Hồ Chí Minh",
-                "price": 5218000,
+                "price": 5220000,
                 "currency": "VND",
                 "date": "2026-11-17",
-                "route": "DAD.NRT"
-              }
-            ],
-            "2026-11-18": [
-              {
-                "airline": "VietJet Air, Jeju Air",
-                "code": "N/A",
-                "time": "00:30",
-                "arrival_time": "12:55",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "10g 25p",
-                "stops": "3g 55p tại Busan",
-                "price": 4662000,
-                "currency": "VND",
-                "date": "2026-11-18",
-                "route": "DAD.NRT"
-              },
-              {
-                "airline": "VietJet Air, Jin Air",
-                "code": "N/A",
-                "time": "00:30",
-                "arrival_time": "12:00",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "9g 30p",
-                "stops": "2g 40p tại Busan",
-                "price": 4715000,
-                "currency": "VND",
-                "date": "2026-11-18",
-                "route": "DAD.NRT"
-              },
-              {
-                "airline": "VietJet Air",
-                "code": "N/A",
-                "time": "18:15",
-                "arrival_time": "07:35",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "11g 20p",
-                "stops": "4g 15p tại TP. Hồ Chí Minh",
-                "price": 5356000,
-                "currency": "VND",
-                "date": "2026-11-18",
-                "route": "DAD.NRT"
-              },
-              {
-                "airline": "VietJet Air",
-                "code": "N/A",
-                "time": "20:35",
-                "arrival_time": "08:00",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "9g 25p",
-                "stops": "3g tại Hà Nội",
-                "price": 5391000,
-                "currency": "VND",
-                "date": "2026-11-18",
                 "route": "DAD.NRT"
               },
               {
@@ -895,7 +823,79 @@
                 "destination": "NRT",
                 "duration": "11g 25p",
                 "stops": "5g tại Hà Nội",
-                "price": 5391000,
+                "price": 5220000,
+                "currency": "VND",
+                "date": "2026-11-17",
+                "route": "DAD.NRT"
+              }
+            ],
+            "2026-11-18": [
+              {
+                "airline": "VietJet Air, Jin Air",
+                "code": "N/A",
+                "time": "00:30",
+                "arrival_time": "12:00",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "9g 30p",
+                "stops": "2g 40p tại Busan",
+                "price": 4652000,
+                "currency": "VND",
+                "date": "2026-11-18",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "VietJet Air",
+                "code": "N/A",
+                "time": "18:15",
+                "arrival_time": "07:35",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "11g 20p",
+                "stops": "4g 15p tại TP. Hồ Chí Minh",
+                "price": 5358000,
+                "currency": "VND",
+                "date": "2026-11-18",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "VietJet Air",
+                "code": "N/A",
+                "time": "14:30",
+                "arrival_time": "07:35",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "15g 5p",
+                "stops": "8g tại TP. Hồ Chí Minh",
+                "price": 5358000,
+                "currency": "VND",
+                "date": "2026-11-18",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "Hong Kong Airlines",
+                "code": "N/A",
+                "time": "16:50",
+                "arrival_time": "19:25",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "24g 35p",
+                "stops": "18g 30p tại Hồng Kông",
+                "price": 5441000,
+                "currency": "VND",
+                "date": "2026-11-18",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "VietJet Air",
+                "code": "N/A",
+                "time": "20:35",
+                "arrival_time": "08:00",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "9g 25p",
+                "stops": "3g tại Hà Nội",
+                "price": 6225000,
                 "currency": "VND",
                 "date": "2026-11-18",
                 "route": "DAD.NRT"
@@ -903,29 +903,29 @@
             ],
             "2026-11-19": [
               {
-                "airline": "Air Seoul",
+                "airline": "VietJet Air, Jin Air",
                 "code": "N/A",
-                "time": "00:40",
-                "arrival_time": "19:00",
+                "time": "00:30",
+                "arrival_time": "12:00",
                 "origin": "DAD",
                 "destination": "NRT",
-                "duration": "16g 20p",
-                "stops": "9g 25p tại Seoul",
-                "price": 4243000,
+                "duration": "9g 30p",
+                "stops": "2g 40p tại Busan",
+                "price": 5129000,
                 "currency": "VND",
                 "date": "2026-11-19",
                 "route": "DAD.NRT"
               },
               {
-                "airline": "Air Seoul",
+                "airline": "VietJet Air",
                 "code": "N/A",
-                "time": "00:40",
-                "arrival_time": "11:50",
+                "time": "23:45",
+                "arrival_time": "15:25",
                 "origin": "DAD",
                 "destination": "NRT",
-                "duration": "9g 10p",
-                "stops": "2g 5p tại Seoul",
-                "price": 4838000,
+                "duration": "13g 40p",
+                "stops": "7g 15p tại Hà Nội",
+                "price": 5220000,
                 "currency": "VND",
                 "date": "2026-11-19",
                 "route": "DAD.NRT"
@@ -939,7 +939,7 @@
                 "destination": "NRT",
                 "duration": "11g 20p",
                 "stops": "4g 15p tại TP. Hồ Chí Minh",
-                "price": 5811000,
+                "price": 5812000,
                 "currency": "VND",
                 "date": "2026-11-19",
                 "route": "DAD.NRT"
@@ -953,7 +953,7 @@
                 "destination": "NRT",
                 "duration": "23g 25p",
                 "stops": "16g 20p tại TP. Hồ Chí Minh",
-                "price": 5811000,
+                "price": 5812000,
                 "currency": "VND",
                 "date": "2026-11-19",
                 "route": "DAD.NRT"
@@ -967,7 +967,7 @@
                 "destination": "NRT",
                 "duration": "12g 25p",
                 "stops": "6g 5p tại Hồng Kông",
-                "price": 6071000,
+                "price": 6070000,
                 "currency": "VND",
                 "date": "2026-11-19",
                 "route": "DAD.NRT"
@@ -975,15 +975,15 @@
             ],
             "2026-11-20": [
               {
-                "airline": "Air Seoul",
+                "airline": "VietJet Air, Jeju Air",
                 "code": "N/A",
-                "time": "00:40",
-                "arrival_time": "11:50",
+                "time": "23:40",
+                "arrival_time": "14:10",
                 "origin": "DAD",
                 "destination": "NRT",
-                "duration": "9g 10p",
-                "stops": "2g 5p tại Seoul",
-                "price": 4944000,
+                "duration": "12g 30p",
+                "stops": "5g 30p tại Seoul",
+                "price": 4879000,
                 "currency": "VND",
                 "date": "2026-11-20",
                 "route": "DAD.NRT"
@@ -997,7 +997,7 @@
                 "destination": "NRT",
                 "duration": "9g 40p",
                 "stops": "2g 45p tại Seoul",
-                "price": 4994000,
+                "price": 4969000,
                 "currency": "VND",
                 "date": "2026-11-20",
                 "route": "DAD.NRT"
@@ -1011,7 +1011,7 @@
                 "destination": "NRT",
                 "duration": "20g 20p",
                 "stops": "14g 25p tại Hồng Kông",
-                "price": 5303000,
+                "price": 5301000,
                 "currency": "VND",
                 "date": "2026-11-20",
                 "route": "DAD.NRT"
@@ -1025,21 +1025,21 @@
                 "destination": "NRT",
                 "duration": "11g 20p",
                 "stops": "4g 15p tại TP. Hồ Chí Minh",
-                "price": 5811000,
+                "price": 5812000,
                 "currency": "VND",
                 "date": "2026-11-20",
                 "route": "DAD.NRT"
               },
               {
-                "airline": "Trinity Airways",
+                "airline": "VietJet Air",
                 "code": "N/A",
-                "time": "23:35",
-                "arrival_time": "10:55",
+                "time": "20:35",
+                "arrival_time": "08:00",
                 "origin": "DAD",
                 "destination": "NRT",
-                "duration": "9g 20p",
-                "stops": "2g 30p tại Seoul",
-                "price": 6317000,
+                "duration": "9g 25p",
+                "stops": "3g tại Hà Nội",
+                "price": 5817000,
                 "currency": "VND",
                 "date": "2026-11-20",
                 "route": "DAD.NRT"
@@ -1047,34 +1047,6 @@
             ],
             "2026-11-21": [
               {
-                "airline": "VietJet Air, Air Seoul",
-                "code": "N/A",
-                "time": "23:40",
-                "arrival_time": "11:50",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "10g 10p",
-                "stops": "3g 20p tại Seoul",
-                "price": 5309000,
-                "currency": "VND",
-                "date": "2026-11-21",
-                "route": "DAD.NRT"
-              },
-              {
-                "airline": "Eastar Jet",
-                "code": "N/A",
-                "time": "01:20",
-                "arrival_time": "10:10",
-                "origin": "DAD",
-                "destination": "NRT",
-                "duration": "30g 50p",
-                "stops": "23g 10p tại Seoul",
-                "price": 5700000,
-                "currency": "VND",
-                "date": "2026-11-21",
-                "route": "DAD.NRT"
-              },
-              {
                 "airline": "VietJet Air",
                 "code": "N/A",
                 "time": "18:15",
@@ -1083,7 +1055,21 @@
                 "destination": "NRT",
                 "duration": "11g 20p",
                 "stops": "4g 15p tại TP. Hồ Chí Minh",
-                "price": 5813000,
+                "price": 5810000,
+                "currency": "VND",
+                "date": "2026-11-21",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "HK Express",
+                "code": "N/A",
+                "time": "10:20",
+                "arrival_time": "20:00",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "7g 40p",
+                "stops": "1g 40p tại Hồng Kông",
+                "price": 5974000,
                 "currency": "VND",
                 "date": "2026-11-21",
                 "route": "DAD.NRT"
@@ -1097,7 +1083,7 @@
                 "destination": "NRT",
                 "duration": "8g 10p",
                 "stops": "2g tại Hồng Kông",
-                "price": 6071000,
+                "price": 6070000,
                 "currency": "VND",
                 "date": "2026-11-21",
                 "route": "DAD.NRT"
@@ -1111,14 +1097,28 @@
                 "destination": "NRT",
                 "duration": "12g 25p",
                 "stops": "6g 5p tại Hồng Kông",
-                "price": 6071000,
+                "price": 6070000,
+                "currency": "VND",
+                "date": "2026-11-21",
+                "route": "DAD.NRT"
+              },
+              {
+                "airline": "Trinity Airways",
+                "code": "N/A",
+                "time": "23:35",
+                "arrival_time": "10:55",
+                "origin": "DAD",
+                "destination": "NRT",
+                "duration": "9g 20p",
+                "stops": "2g 30p tại Seoul",
+                "price": 6364000,
                 "currency": "VND",
                 "date": "2026-11-21",
                 "route": "DAD.NRT"
               }
             ]
           },
-          "last_success_at": "2026-09-21T22:01:00.896822+00:00"
+          "last_success_at": "2026-09-22T04:57:43.136785+00:00"
         },
         "family-1-kansai-danang-20261122": {
           "label": "Osaka Kansai → Đà Nẵng (khoảng 24–28/11)",
@@ -1137,7 +1137,7 @@
                 "destination": "DAD",
                 "duration": "11g 30p",
                 "stops": "4g 30p tại Seoul",
-                "price": 4948000,
+                "price": 5121000,
                 "currency": "VND",
                 "date": "2026-11-24",
                 "route": "KIX.DAD"
@@ -1151,7 +1151,7 @@
                 "destination": "DAD",
                 "duration": "11g 50p",
                 "stops": "4g 45p tại Seoul",
-                "price": 5527000,
+                "price": 5481000,
                 "currency": "VND",
                 "date": "2026-11-24",
                 "route": "KIX.DAD"
@@ -1165,7 +1165,7 @@
                 "destination": "DAD",
                 "duration": "10g 20p",
                 "stops": "3g tại TP. Hồ Chí Minh",
-                "price": 5697000,
+                "price": 5706000,
                 "currency": "VND",
                 "date": "2026-11-24",
                 "route": "KIX.DAD"
@@ -1179,7 +1179,7 @@
                 "destination": "DAD",
                 "duration": "9g 50p",
                 "stops": "2g 55p tại Seoul",
-                "price": 5761000,
+                "price": 5755000,
                 "currency": "VND",
                 "date": "2026-11-24",
                 "route": "KIX.DAD"
@@ -1193,27 +1193,13 @@
                 "destination": "DAD",
                 "duration": "8g",
                 "stops": "1g 15p tại Hồng Kông",
-                "price": 7194000,
+                "price": 7168000,
                 "currency": "VND",
                 "date": "2026-11-24",
                 "route": "KIX.DAD"
               }
             ],
             "2026-11-25": [
-              {
-                "airline": "Air Seoul",
-                "code": "N/A",
-                "time": "16:00",
-                "arrival_time": "23:40",
-                "origin": "KIX",
-                "destination": "DAD",
-                "duration": "9g 40p",
-                "stops": "3g tại Seoul",
-                "price": 5088000,
-                "currency": "VND",
-                "date": "2026-11-25",
-                "route": "KIX.DAD"
-              },
               {
                 "airline": "Asiana Airlines, VietJet Air",
                 "code": "N/A",
@@ -1223,7 +1209,7 @@
                 "destination": "DAD",
                 "duration": "11g 50p",
                 "stops": "4g 45p tại Seoul",
-                "price": 5527000,
+                "price": 5481000,
                 "currency": "VND",
                 "date": "2026-11-25",
                 "route": "KIX.DAD"
@@ -1237,7 +1223,7 @@
                 "destination": "DAD",
                 "duration": "10g 20p",
                 "stops": "3g tại TP. Hồ Chí Minh",
-                "price": 5531000,
+                "price": 5542000,
                 "currency": "VND",
                 "date": "2026-11-25",
                 "route": "KIX.DAD"
@@ -1251,7 +1237,21 @@
                 "destination": "DAD",
                 "duration": "12g 20p",
                 "stops": "5g tại TP. Hồ Chí Minh",
-                "price": 5531000,
+                "price": 5542000,
+                "currency": "VND",
+                "date": "2026-11-25",
+                "route": "KIX.DAD"
+              },
+              {
+                "airline": "Hong Kong Airlines",
+                "code": "N/A",
+                "time": "09:50",
+                "arrival_time": "20:05",
+                "origin": "KIX",
+                "destination": "DAD",
+                "duration": "12g 15p",
+                "stops": "5g 20p tại Hồng Kông",
+                "price": 6962000,
                 "currency": "VND",
                 "date": "2026-11-25",
                 "route": "KIX.DAD"
@@ -1265,7 +1265,7 @@
                 "destination": "DAD",
                 "duration": "8g",
                 "stops": "1g 15p tại Hồng Kông",
-                "price": 6991000,
+                "price": 6965000,
                 "currency": "VND",
                 "date": "2026-11-25",
                 "route": "KIX.DAD"
@@ -1273,15 +1273,15 @@
             ],
             "2026-11-26": [
               {
-                "airline": "Air Seoul",
+                "airline": "Jeju Air",
                 "code": "N/A",
-                "time": "10:00",
-                "arrival_time": "23:40",
+                "time": "12:00",
+                "arrival_time": "13:05",
                 "origin": "KIX",
                 "destination": "DAD",
-                "duration": "15g 40p",
-                "stops": "9g tại Seoul",
-                "price": 5191000,
+                "duration": "27g 5p",
+                "stops": "20g tại Seoul",
+                "price": 5390000,
                 "currency": "VND",
                 "date": "2026-11-26",
                 "route": "KIX.DAD"
@@ -1295,21 +1295,35 @@
                 "destination": "DAD",
                 "duration": "10g 20p",
                 "stops": "3g tại TP. Hồ Chí Minh",
-                "price": 5697000,
+                "price": 5708000,
                 "currency": "VND",
                 "date": "2026-11-26",
                 "route": "KIX.DAD"
               },
               {
-                "airline": "VietJet Air",
+                "airline": "Jeju Air",
                 "code": "N/A",
-                "time": "09:30",
-                "arrival_time": "19:50",
+                "time": "10:50",
+                "arrival_time": "13:05",
                 "origin": "KIX",
                 "destination": "DAD",
-                "duration": "12g 20p",
-                "stops": "5g tại TP. Hồ Chí Minh",
-                "price": 5697000,
+                "duration": "28g 15p",
+                "stops": "21g 10p tại Seoul",
+                "price": 5729000,
+                "currency": "VND",
+                "date": "2026-11-26",
+                "route": "KIX.DAD"
+              },
+              {
+                "airline": "Jeju Air",
+                "code": "N/A",
+                "time": "09:50",
+                "arrival_time": "13:05",
+                "origin": "KIX",
+                "destination": "DAD",
+                "duration": "29g 15p",
+                "stops": "22g 10p tại Seoul",
+                "price": 5829000,
                 "currency": "VND",
                 "date": "2026-11-26",
                 "route": "KIX.DAD"
@@ -1323,21 +1337,7 @@
                 "destination": "DAD",
                 "duration": "8g",
                 "stops": "1g 15p tại Hồng Kông",
-                "price": 7194000,
-                "currency": "VND",
-                "date": "2026-11-26",
-                "route": "KIX.DAD"
-              },
-              {
-                "airline": "Air Macau",
-                "code": "N/A",
-                "time": "13:45",
-                "arrival_time": "19:00",
-                "origin": "KIX",
-                "destination": "DAD",
-                "duration": "7g 15p",
-                "stops": "1g 5p tại Ma Cao",
-                "price": 7199000,
+                "price": 7168000,
                 "currency": "VND",
                 "date": "2026-11-26",
                 "route": "KIX.DAD"
@@ -1353,7 +1353,7 @@
                 "destination": "DAD",
                 "duration": "20g 5p",
                 "stops": "13g 5p tại Seoul",
-                "price": 5080000,
+                "price": 5070000,
                 "currency": "VND",
                 "date": "2026-11-27",
                 "route": "KIX.DAD"
@@ -1367,7 +1367,7 @@
                 "destination": "DAD",
                 "duration": "14g 25p",
                 "stops": "7g 30p tại Seoul",
-                "price": 5290000,
+                "price": 5272000,
                 "currency": "VND",
                 "date": "2026-11-27",
                 "route": "KIX.DAD"
@@ -1381,21 +1381,7 @@
                 "destination": "DAD",
                 "duration": "12g 40p",
                 "stops": "5g 20p tại Seoul",
-                "price": 5470000,
-                "currency": "VND",
-                "date": "2026-11-27",
-                "route": "KIX.DAD"
-              },
-              {
-                "airline": "VietJet Air",
-                "code": "N/A",
-                "time": "09:30",
-                "arrival_time": "17:50",
-                "origin": "KIX",
-                "destination": "DAD",
-                "duration": "10g 20p",
-                "stops": "3g tại TP. Hồ Chí Minh",
-                "price": 5697000,
+                "price": 5430000,
                 "currency": "VND",
                 "date": "2026-11-27",
                 "route": "KIX.DAD"
@@ -1409,7 +1395,21 @@
                 "destination": "DAD",
                 "duration": "11g 50p",
                 "stops": "4g 45p tại Seoul",
-                "price": 5732000,
+                "price": 5690000,
+                "currency": "VND",
+                "date": "2026-11-27",
+                "route": "KIX.DAD"
+              },
+              {
+                "airline": "VietJet Air",
+                "code": "N/A",
+                "time": "09:30",
+                "arrival_time": "17:50",
+                "origin": "KIX",
+                "destination": "DAD",
+                "duration": "10g 20p",
+                "stops": "3g tại TP. Hồ Chí Minh",
+                "price": 5708000,
                 "currency": "VND",
                 "date": "2026-11-27",
                 "route": "KIX.DAD"
@@ -1425,7 +1425,7 @@
                 "destination": "DAD",
                 "duration": "10g 20p",
                 "stops": "3g tại TP. Hồ Chí Minh",
-                "price": 5531000,
+                "price": 5542000,
                 "currency": "VND",
                 "date": "2026-11-28",
                 "route": "KIX.DAD"
@@ -1439,7 +1439,7 @@
                 "destination": "DAD",
                 "duration": "12g 20p",
                 "stops": "5g tại TP. Hồ Chí Minh",
-                "price": 5531000,
+                "price": 5542000,
                 "currency": "VND",
                 "date": "2026-11-28",
                 "route": "KIX.DAD"
@@ -1453,7 +1453,21 @@
                 "destination": "DAD",
                 "duration": "11g 50p",
                 "stops": "4g 45p tại Seoul",
-                "price": 5779000,
+                "price": 5735000,
+                "currency": "VND",
+                "date": "2026-11-28",
+                "route": "KIX.DAD"
+              },
+              {
+                "airline": "Parata Air",
+                "code": "N/A",
+                "time": "11:45",
+                "arrival_time": "21:15",
+                "origin": "KIX",
+                "destination": "DAD",
+                "duration": "11g 30p",
+                "stops": "4g 30p tại Seoul",
+                "price": 6141000,
                 "currency": "VND",
                 "date": "2026-11-28",
                 "route": "KIX.DAD"
@@ -1467,28 +1481,14 @@
                 "destination": "DAD",
                 "duration": "7g 15p",
                 "stops": "1g 5p tại Ma Cao",
-                "price": 7999000,
-                "currency": "VND",
-                "date": "2026-11-28",
-                "route": "KIX.DAD"
-              },
-              {
-                "airline": "Korean Air",
-                "code": "N/A",
-                "time": "14:00",
-                "arrival_time": "21:40",
-                "origin": "KIX",
-                "destination": "DAD",
-                "duration": "9g 40p",
-                "stops": "2g 25p tại Seoul",
-                "price": 8478000,
+                "price": 7937000,
                 "currency": "VND",
                 "date": "2026-11-28",
                 "route": "KIX.DAD"
               }
             ]
           },
-          "last_success_at": "2026-09-21T22:01:43.279157+00:00"
+          "last_success_at": "2026-09-22T04:58:37.236111+00:00"
         }
       }
     }
